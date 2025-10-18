@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lakshya Hospital | Trusted Care for Every Life</title>
+  <meta name="description" content="Lakshya Hospital — compassionate care, advanced diagnostics, 24/7 emergency. Book via WhatsApp or call." />
+  <meta name="author" content="Lakshya Hospital" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#009688;
+      --dark:#004d40;
+      --muted:#6b6b6b;
+    }
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:#f7fbfb;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+
+/* NAVBAR - teal theme and mobile responsive */
+.navbar {
+  background: rgba(0,150,136,0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 1030;
+}
+
+/* Brand area */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.375rem 0;
+  margin-right: 1rem;
+}
+
+/* Logo size */
+.navbar-logo {
+  height: 72px;
+  max-height: 90%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nav links */
+.nav-link {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #fff !important;
+}
+
+/* Mobile toggler (hamburger icon) */
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+  color: #fff !important;
+  position: relative;
+  z-index: 1100;
+  background: transparent !important; /* remove any black bg */
+  transition: transform 0.3s ease;
+}
+
+/* 🔥 Remove Bootstrap’s default dark SVG icon */
+.navbar-dark .navbar-toggler-icon {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Custom white hamburger lines */
+.navbar-toggler-icon {
+  position: relative;
+  width: 25px;
+  height: 2px;
+  background-color: #fff !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before {
+  top: -7px;
+}
+.navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* ✅ Animate into “X” when menu is open */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: #fff;
+  transform: rotate(0deg);
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background-color: transparent;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* ✅ Navbar collapse background fix */
+.navbar-collapse {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Mobile dropdown background only */
+@media (max-width: 991px) {
+  .navbar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-logo {
+    height: 48px;
+  }
+  .navbar-collapse {
+    position: relative;
+    z-index: 1;
+    /* background: rgba(0,150,136,0.95) !important; */
+    backdrop-filter: blur(4px);
+  }
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+
+
+    /* HERO - slideshow */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display:flex;
+      align-items:flex-end; /* text at bottom */
+      justify-content:center;
+      padding-bottom:88px;
+      overflow:hidden;
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.02);
+      transition:opacity 1200ms ease-in-out, transform 1200ms ease-in-out;
+      will-change: opacity, transform;
+    }
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    /* subtle gradient overlay for readability (NO teal) */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.5));
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:960px;
+      padding:32px;
+      color:#fff;
+      text-align:center;
+      animation: contentIn 700ms ease-out;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-weight:700;
+      font-size: clamp(1.75rem, 3.6vw, 3.2rem);
+      line-height:1.03;
+      letter-spacing:0.2px;
+      margin-bottom:8px;
+      text-shadow:0 8px 24px rgba(0,0,0,0.45);
+    }
+    .hero p.lead{
+      font-size:1.05rem;
+      color:rgba(255,255,255,0.92);
+      margin-bottom:18px;
+      text-shadow:0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    /* hero buttons row */
+    .hero-buttons .btn{
+      border-radius:999px;
+      padding:12px 26px;
+      font-weight:600;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn-whatsapp{
+      background:#25D366;color:#fff;border:0;
+      box-shadow:0 6px 20px rgba(37,211,102,0.18);
+    }
+    .btn-whatsapp:hover{transform:translateY(-4px);filter:brightness(.98)}
+    .btn-call{
+      background:var(--primary); color:#fff;border:0;
+      box-shadow:0 6px 20px rgba(0,150,136,0.12);
+    }
+    .btn-call:hover{transform:translateY(-4px);}
+
+    /* floating quick actions (bottom-right) */
+    .floating-actions{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      z-index:1200;
+      align-items:center;
+    }
+    .fa-btn{
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      color:#fff;font-size:22px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+      text-decoration:none;
+    }
+    .fa-whatsapp{background:#25D366}
+    .fa-call{background:var(--primary)}
+
+    /* small "scroll hint" */
+    .scroll-hint{
+      margin-top:10px;
+      display:block;
+      opacity:0.85;
+      font-size:.9rem;
+      color:rgba(255,255,255,0.9);
+    }
+
+    /* general cards and boxes (kept same look) */
+    .info-box, .why-card, .testimonial{
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .info-box:hover, .why-card:hover, .testimonial:hover{ transform:translateY(-6px) }
+
+    /* doctors cards */
+    .doctor-card img{ height:250px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px }
+
+    /* footer */
+    .footer{ background:var(--dark); color:#fff; padding:28px 0 }
+
+    /* responsive tweaks */
+    @media (max-width:768px){
+      .hero{ padding-bottom:60px; min-height:66vh; align-items:center }
+      .hero-content{ padding:16px }
+    }
+
+    /* animations */
+    @keyframes contentIn{
+      from{ opacity:0; transform:translateY(28px) }
+      to{ opacity:1; transform:none }
+    }
+
+
+/* 🏥 INSURANCE SECTION STYLES */
+#insurance {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+#insurance h2 {
+  font-weight: 600;
+  color: #00695c;
+}
+
+.insurance-logo {
+  filter: grayscale(100%);
+  opacity: 0.85;
+  max-height: 80px;
+  transition: all 0.3s ease;
+}
+
+.insurance-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+  .insurance-logo {
+    max-height: 60px;
+  }
+  #insurance h2 {
+    font-size: 1.4rem;
+  }
+}
+
+    /* accessibility focus */
+    a:focus { outline:3px solid rgba(0,150,136,0.18); outline-offset:3px; border-radius:6px }
+
+    .text-teal { color:#009688 !important; }
+
+
+ 
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <div class="container">
+      <a class="navbar-brand" href="#">
+  <img src="logolakshya-removebg-preview (1).png" alt="Lakshya Hospital Logo" class="navbar-logo">
+</a>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navmenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO (slideshow) -->
+  <header class="hero" role="banner" aria-label="Hero — Lakshya Hospital">
+    <!-- slides: replace these filenames with your local files or optimized URLs -->
+    <div class="hero-slide" style="background-image:url('different-doctors-doing-surgical-procedure-patient.jpg');" aria-hidden="true"></div>
+    <div class="hero-slide" style="background-image:url('happy-female-doctor-giving-high-fie-little-boy-who-came-with-father-hospital.jpg');" aria-hidden="true"></div>
+    <div class="hero-slide" style="background-image:url('asian-doctor-visit-examines-senior-man-home-shaking-hands-after-finished-health-check-up-hospital-services-wearing-mask-protect-covid19.jpg');" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <h1 data-aos="fade-up">Advanced Healthcare for a Healthier Tomorrow</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="80">Delivering trusted medical expertise, compassion, and modern facilities — your health is our priority.</p>
+
+      <div class="d-flex justify-content-center gap-3 mt-3 hero-buttons" data-aos="fade-up" data-aos-delay="220" role="group" aria-label="Primary actions">
+        <!-- WHATSAPP: replace 911234567890 with real number (country code + number, no plus for wa.me URL) -->
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/911234567890?text=Hello%20Lakshya%20Hospital!%20I%20would%20like%20to%20book%20an%20appointment." aria-label="Message on WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
+        </a>
+
+        <!-- CALL -->
+        <a class="btn btn-call" href="tel:+911234567890" aria-label="Call Lakshya Hospital">
+          <i class="bi bi-telephone" aria-hidden="true"></i> Call Now
+        </a>
+      </div>
+
+      <span class="scroll-hint" data-aos="fade-up" data-aos-delay="420" aria-hidden="true">Scroll for services ↓</span>
+    </div>
+  </header>
+
+  <!-- floating quick actions (always available) -->
+  <div class="floating-actions" aria-hidden="false">
+    <a class="fa-btn fa-whatsapp" href="https://wa.me/911234567890" target="_blank" rel="noopener" title="WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a class="fa-btn fa-call" href="tel:+911234567890" title="Call">
+      <i class="bi bi-telephone"></i>
+    </a>
+  </div>
+
+  <!-- ABOUT -->
+ <section id="about" class="py-5 text-center">
+    <div class="container">
+      <h2 data-aos="fade-up">Our Mission & Vision</h2>
+      <p class="text-muted mt-3 mb-5" data-aos="fade-up" data-aos-delay="80">Lakshya Hospital blends compassionate care with modern medical technology to deliver safe, effective, and affordable healthcare.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="info-box p-4 h-100">
+            <i class="bi bi-heart-pulse-fill fs-1 mb-3 text-teal"></i>
+            <h5 class="fw-bold">Our Mission</h5>
+            <p>To provide high-quality, patient-centered care while maintaining transparency and compassion.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="info-box p-4 h-100">
+            <i class="bi bi-eye-fill fs-1 mb-3 text-teal"></i>
+            <h5 class="fw-bold">Our Vision</h5>
+            <p>To be the most trusted healthcare partner for families in our community, recognized for clinical excellence and empathy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- WHY CHOOSE -->
+  <section id="why" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">Why Choose Lakshya Hospital?</h2>
+      <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="60">We combine expert doctors, modern equipment, and round-the-clock care — all while keeping patient needs first.</p>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-card text-center p-4 h-100">
+            <div class="mb-3" style="width:56px;height:56px;border-radius:10px;display:inline-grid;place-items:center;background:linear-gradient(135deg,#00796b,#26a69a);color:#fff;font-size:20px">✓</div>
+            <h5 class="fw-bold">Expert Specialists</h5>
+            <p class="text-muted">Highly qualified doctors with specialization across core departments.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="140">
+          <div class="why-card text-center p-4 h-100">
+            <div class="mb-3" style="width:56px;height:56px;border-radius:10px;display:inline-grid;place-items:center;background:linear-gradient(135deg,#00796b,#26a69a);color:#fff;font-size:20px">⚙</div>
+            <h5 class="fw-bold">Advanced Diagnostics</h5>
+            <p class="text-muted">On-site lab and imaging to speed up accurate diagnosis and treatment planning.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="180">
+          <div class="why-card text-center p-4 h-100">
+            <div class="mb-3" style="width:56px;height:56px;border-radius:10px;display:inline-grid;place-items:center;background:linear-gradient(135deg,#00796b,#26a69a);color:#fff;font-size:20px">⏱</div>
+            <h5 class="fw-bold">24/7 Emergency Care</h5>
+            <p class="text-muted">Dedicated emergency services and prompt response to critical cases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Stats Section -->
+<section class="stats text-center py-5">
+  <div class="container">
+    <div class="row g-4">
+      
+      <div class="col-md-3" data-aos="zoom-in">
+        <div class="stat-box p-4 bg-white rounded shadow-sm">
+          <i class="bi bi-trophy-fill mb-2" style="font-size:2.5rem; color:#00796b;"></i>
+          <h3 class="mt-2">15+</h3>
+          <p class="text-muted mb-0">Years of Excellence</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stat-box p-4 bg-white rounded shadow-sm">
+          <i class="bi bi-people-fill mb-2" style="font-size:2.5rem; color:#00796b;"></i>
+          <h3 class="mt-2">30K+</h3>
+          <p class="text-muted mb-0">Patients Treated</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stat-box p-4 bg-white rounded shadow-sm">
+          <i class="bi bi-person-badge-fill mb-2" style="font-size:2.5rem; color:#00796b;"></i>
+          <h3 class="mt-2">3</h3>
+          <p class="text-muted mb-0">Expert Doctors</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stat-box p-4 bg-white rounded shadow-sm">
+          <i class="bi bi-telephone-fill mb-2" style="font-size:2.5rem; color:#00796b;"></i>
+          <h3 class="mt-2">24/7</h3>
+          <p class="text-muted mb-0">Emergency Support</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- DOCTORS -->
+  <section id="doctors" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2 data-aos="fade-up">Meet Our Specialists</h2>
+      <p class="text-muted mb-5" data-aos="fade-up" data-aos-delay="60">Our multi-disciplinary team brings clinical excellence and compassionate care to every patient.</p>
+
+      <!-- Main Surgeon (bigger) -->
+      <div class="col-lg-6 mx-auto mb-5" data-aos="zoom-in">
+        <div class="card doctor-card shadow-sm">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200" class="card-img-top" alt="Surgeon">
+          <div class="card-body">
+            <h4 class="card-title">Dr. Anand Verma</h4>
+            <p class="card-text text-muted">MBBS, MS – Chief Surgeon</p>
+            <p>Lead surgeon specializing in minimally invasive and advanced surgical procedures with 15+ years of experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two supporting doctors -->
+      <div class="row justify-content-center g-4">
+        <div class="col-md-4" data-aos="fade-right">
+          <div class="card doctor-card">
+            <img loading="lazy" src="photo-happy-female-doctor-giving-water-her-patient-nursing-home-assistant-help-those-who-need-it.jpg" class="card-img-top" alt="Doctor 1">
+            <div class="card-body">
+              <h5 class="card-title">Dr. Priya Sharma</h5>
+              <p class="card-text text-muted">MBBS, MD – Internal Medicine</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-left">
+          <div class="card doctor-card">
+            <img loading="lazy" src="beautiful-young-female-doctor-looking-camera-office.jpg" class="card-img-top" alt="Doctor 2">
+            <div class="card-body">
+              <h5 class="card-title">Dr. Sahana Iyer</h5>
+              <p class="card-text text-muted">MBBS, DGO – Gynecology</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (simple grid) -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 data-aos="fade-up">What Our Patients Say</h2>
+      <div class="row mt-4 g-4">
+        <div class="col-md-4" data-aos="flip-left">
+          <div class="testimonial p-3">
+            <p>“Excellent hospital with kind and professional staff. The doctors really care!”</p>
+            <h6>- Meena K.</h6>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-up">
+          <div class="testimonial p-3">
+            <p>“State-of-the-art facilities and quick emergency response. Highly recommended.”</p>
+            <h6>- Rajesh T.</h6>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-right">
+          <div class="testimonial p-3">
+            <p>“Clean environment and trustworthy service. I’m grateful for their care.”</p>
+            <h6>- Sushil P.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- INSURANCE PARTNERS (SELF-CONTAINED INLINE SVGS) -->
+<section id="insurance" class="py-5 text-center bg-white">
+  <div class="container">
+    <h2 data-aos="fade-up">Insurance & Cashless Health Partners</h2>
+    <p class="text-muted mt-3 mb-5" data-aos="fade-up" data-aos-delay="100">
+      We provide cashless treatment and claim assistance with leading health insurance providers.
+    </p>
+
+    <div class="row justify-content-center align-items-center g-4 mb-4">
+      <!-- 1 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in">
+        <div class="insurance-card" aria-hidden="false">
+          <!-- Inline SVG placeholder logo -->
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="Star Health">
+            <rect width="200" height="60" rx="8" fill="#E9F7F4"/>
+            <text x="100" y="36" fill="#00796b" font-family="Poppins, sans-serif" font-weight="600" font-size="16" text-anchor="middle">Star Health</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="80">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="HDFC ERGO">
+            <rect width="200" height="60" rx="8" fill="#F4FBFA"/>
+            <text x="100" y="36" fill="#00695c" font-family="Poppins, sans-serif" font-weight="600" font-size="15" text-anchor="middle">HDFC ERGO</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="160">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="ICICI Lombard">
+            <rect width="200" height="60" rx="8" fill="#FBFEFC"/>
+            <text x="100" y="36" fill="#00796b" font-family="Poppins, sans-serif" font-weight="600" font-size="14" text-anchor="middle">ICICI Lombard</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="240">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="United India">
+            <rect width="200" height="60" rx="8" fill="#F6FFFB"/>
+            <text x="100" y="36" fill="#00695c" font-family="Poppins, sans-serif" font-weight="600" font-size="15" text-anchor="middle">United India</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="320">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="Niva Bupa">
+            <rect width="200" height="60" rx="8" fill="#F3FFF8"/>
+            <text x="100" y="36" fill="#00796b" font-family="Poppins, sans-serif" font-weight="600" font-size="15" text-anchor="middle">Niva Bupa</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="Aditya Birla">
+            <rect width="200" height="60" rx="8" fill="#F0FFF9"/>
+            <text x="100" y="36" fill="#00695c" font-family="Poppins, sans-serif" font-weight="600" font-size="14" text-anchor="middle">Aditya Birla</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="480">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="SBI General">
+            <rect width="200" height="60" rx="8" fill="#F7FFF9"/>
+            <text x="100" y="36" fill="#00796b" font-family="Poppins, sans-serif" font-weight="600" font-size="14" text-anchor="middle">SBI General</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="560">
+        <div class="insurance-card">
+          <svg class="insurance-svg" viewBox="0 0 200 60" role="img" aria-label="Bajaj Allianz">
+            <rect width="200" height="60" rx="8" fill="#F6FFF8"/>
+            <text x="100" y="36" fill="#00695c" font-family="Poppins, sans-serif" font-weight="600" font-size="14" text-anchor="middle">Bajaj Allianz</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-muted small mt-4" data-aos="fade-up" data-aos-delay="640">
+      *Cashless facility availability is subject to your individual insurance policy and provider approval.
+    </p>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-5 text-center bg-light">
+    <div class="container" data-aos="fade-up">
+      <h2>Book an Appointment</h2>
+      <p class="text-muted">We’re here to help. Contact us for appointments or queries.</p>
+      <p><strong>📍 Address:</strong> 12 Lakshya Road, Your City</p>
+      <p><strong>📞 Phone:</strong> +91 12345 67890</p>
+      <a class="btn btn-primary mt-2" href="tel:+911234567890">Call Now</a>
+      <a class="btn btn-outline-success mt-2 ms-2" href="https://wa.me/911234567890" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>© <span id="year"></span> Lakshya Hospital | Designed with care.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80 });
+
+    // HERO SLIDESHOW - simple crossfade
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      if(!slides.length) return;
+      let current = 0;
+      slides[current].classList.add('active');
+
+      // Preload slide images (helpful when using local files)
+      slides.forEach(s => {
+        const url = s.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+        const img = new Image();
+        img.src = url;
+      });
+
+      // rotate
+      const DURATION = 6000; // ms per slide
+      setInterval(()=>{
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, DURATION);
+    })();
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
