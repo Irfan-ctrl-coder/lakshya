@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lakshya Hospital | About Us</title>
+  <meta name="description" content="Lakshya Hospital — trusted healthcare with experienced founders, expert team, and compassionate care." />
+  <meta name="author" content="Lakshya Hospital" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#009688;
+      --dark:#004d40;
+      --muted:#6b6b6b;
+    }
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:#f7fbfb;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(0,150,136,0.95);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      z-index: 1030;
+    }
+    .navbar-brand { display:flex; align-items:center; height:100%; padding:0.375rem 0; margin-right:1rem; }
+    .navbar-logo { height:72px; max-height:90%; width:auto; object-fit:contain; display:block; }
+    .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:500; padding:8px 16px; transition:color 0.3s ease; }
+    .nav-link:hover { color:#fff !important; }
+
+    /* HERO */
+    .hero { position:relative; min-height:60vh; display:flex; align-items:flex-end; justify-content:center; padding-bottom:88px; overflow:hidden; }
+    .hero-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transform:scale(1.02); transition:opacity 1200ms ease-in-out, transform 1200ms ease-in-out; will-change: opacity, transform; }
+    .hero-slide.active { opacity:1; transform:scale(1); }
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.5)); z-index:1; pointer-events:none; }
+    .hero-content { position:relative; z-index:2; max-width:960px; padding:32px; color:#fff; text-align:center; animation: contentIn 700ms ease-out; }
+    .hero h1 { font-family:'Playfair Display',serif; font-weight:700; font-size: clamp(1.75rem, 3.6vw, 3.2rem); line-height:1.03; text-shadow:0 8px 24px rgba(0,0,0,0.45); margin-bottom:8px; }
+    .hero p.lead { font-size:1.05rem; color:rgba(255,255,255,0.92); margin-bottom:18px; text-shadow:0 6px 18px rgba(0,0,0,0.35); }
+
+    /* SECTIONS */
+    section { padding:80px 0; }
+    .section-title { font-weight:700; color:#00695c; margin-bottom:40px; text-align:center; }
+
+/* Founder Section */
+#founder {
+  background: linear-gradient(135deg, rgba(0,150,136,0.05), rgba(0,150,136,0.12));
+  padding: 100px 0;
+  position: relative;
+}
+
+/* Founder Card */
+.founder-box { 
+  background:#fff; 
+  padding:60px 50px; 
+  border-radius:20px; 
+  box-shadow:0 10px 30px rgba(0,0,0,0.12); 
+  text-align:center; 
+  max-width:800px; 
+  margin:0 auto; 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-box:hover {
+  transform: translateY(-5px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Founder Image */
+.founder-box img { 
+  width:350px;
+  height:350px; 
+  object-fit:cover; 
+  border-radius:50%; 
+  margin-bottom:35px; 
+  border:5px solid var(--primary); 
+  transition: all 0.3s ease-in-out;
+}
+
+/* Text Styling */
+.founder-box h5 { 
+  font-weight:700; 
+  margin-bottom:15px; 
+  font-size:1.8rem; 
+  color:var(--dark); 
+}
+.founder-box p { 
+  color:#555; 
+  font-size:1.1rem; 
+  line-height:1.6; 
+  max-width:600px; 
+}
+
+/* Responsive Adjustments */
+@media (max-width:1200px) {
+  .founder-box img { width:300px; height:300px; }
+}
+
+@media (max-width:992px) {
+  #founder { padding:80px 0; }
+  .founder-box { padding:50px 30px; }
+  .founder-box img { width:250px; height:250px; margin-bottom:30px; }
+  .founder-box h5 { font-size:1.5rem; }
+  .founder-box p { font-size:1rem; }
+}
+
+@media (max-width:768px) {
+  #founder { padding:70px 0; }
+  .founder-box img { width:200px; height:200px; margin-bottom:25px; }
+  .founder-box h5 { font-size:1.3rem; }
+  .founder-box p { font-size:0.95rem; }
+}
+
+@media (max-width:480px) {
+  #founder { padding:60px 0; }
+  .founder-box img { width:150px; height:150px; margin-bottom:20px; }
+  .founder-box h5 { font-size:1.2rem; }
+  .founder-box p { font-size:0.9rem; }
+}
+
+
+    /* Team & Departments */
+    .service-card { background:#fff; border-radius:12px; padding:24px; transition: transform 0.25s ease, box-shadow 0.25s ease; text-align:center; }
+    .service-card:hover { transform:translateY(-6px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+    .service-card i { font-size:2.5rem; color:var(--primary); margin-bottom:12px; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 1rem; top: 0; bottom: 0; width: 4px; background: var(--primary); border-radius:2px; }
+    .timeline-item { position: relative; margin-bottom:40px; }
+    .timeline-item::before { content:""; position:absolute; left:-6px; top:0; width:16px; height:16px; background:var(--primary); border-radius:50%; border:4px solid #fff; }
+    .timeline-item h5 { font-weight:700; margin-bottom:6px; }
+    .timeline-item p { color:#555; }
+
+    /* Contact */
+    #contact h2 { font-weight:700; margin-bottom:16px; }
+    #contact p { margin-bottom:8px; color:#555; }
+
+    /* Footer */
+    .footer{ background:var(--dark); color:#fff; padding:28px 0; text-align:center; }
+
+    @keyframes contentIn{ from{ opacity:0; transform:translateY(28px) } to{ opacity:1; transform:none } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logolakshya-removebg-preview (1).png" alt="Lakshya Hospital Logo" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navmenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Hero — About Us">
+    <div class="hero-slide" style="background-image:url('about-hero1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('about-hero2.jpg');"></div>
+    <div class="container hero-content">
+      <h1 data-aos="fade-up">About Lakshya Hospital</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="80">Committed to compassionate care, innovation, and excellence in healthcare.</p>
+    </div>
+  </header>
+
+  <!-- OUR STORY -->
+  <section id="our-story">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Story</h2>
+      <p data-aos="fade-up" data-aos-delay="80">Lakshya Hospital was founded with a vision to provide world-class medical services with a personal touch. Our team combines years of expertise, modern technology, and patient-focused care to create a nurturing environment for healing.</p>
+      <p data-aos="fade-up" data-aos-delay="120">Over the years, we have expanded our specialties, partnered with trusted insurance providers, and built a network of skilled medical professionals to ensure every patient receives the highest standard of care.</p>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Founder</h2>
+      <div class="founder-box" data-aos="fade-up" data-aos-delay="80">
+        <img src="beautiful-young-female-doctor-looking-camera-office.jpg" alt="Founder Photo">
+        <h5>Ms. Ananya Verma</h5>
+        <p>Founder & Visionary Leader</p>
+        <p>Ms. Ananya Verma envisioned a hospital that combines modern medical expertise with compassionate care. Though not a doctor, her leadership and commitment have driven Lakshya Hospital to become a trusted healthcare destination.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM & DEPARTMENTS -->
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Team & Departments</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <i class="bi bi-heart-pulse-fill"></i>
+            <h5 class="fw-bold mt-3">Cardiology</h5>
+            <p class="text-muted">Led by Dr. Rajesh Kumar – Expert in heart care and interventions.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="140">
+          <div class="service-card">
+            <i class="bi bi-people-fill"></i>
+            <h5 class="fw-bold mt-3">Pediatrics</h5>
+            <p class="text-muted">Led by Dr. Priya Sharma – Focused on child health and wellness.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="180">
+          <div class="service-card">
+            <i class="bi bi-hospital"></i>
+            <h5 class="fw-bold mt-3">Emergency & Critical Care</h5>
+            <p class="text-muted">Led by Dr. Amit Singh – 24/7 rapid response medical team.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="220">
+          <div class="service-card">
+            <i class="bi bi-droplet-half"></i>
+            <h5 class="fw-bold mt-3">Diagnostics & Lab</h5>
+            <p class="text-muted">Our lab team ensures timely and accurate reports for every patient.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="260">
+          <div class="service-card">
+            <i class="bi bi-gender-female"></i>
+            <h5 class="fw-bold mt-3">Gynecology & Obstetrics</h5>
+            <p class="text-muted">Led by Dr. Anjali Mehta – Comprehensive care for women's health.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <i class="bi bi-briefcase-medical"></i>
+            <h5 class="fw-bold mt-3">General Surgery</h5>
+            <p class="text-muted">Specialized surgical team offering minimally invasive procedures.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="340">
+          <div class="service-card">
+            <i class="bi bi-brain"></i>
+            <h5 class="fw-bold mt-3">Neurology</h5>
+            <p class="text-muted">Led by Dr. Neeraj Gupta – Expertise in brain and nervous system care.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="380">
+          <div class="service-card">
+            <i class="bi bi-lungs-fill"></i>
+            <h5 class="fw-bold mt-3">Pulmonology</h5>
+            <p class="text-muted">Led by Dr. Kavita Reddy – Advanced care for respiratory health.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE / MILESTONES -->
+  <section id="timeline">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Milestones</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <h5>2015</h5>
+          <p>Founded Lakshya Hospital with a vision for patient-centered care.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="140">
+          <h5>2017</h5>
+          <p>Expanded cardiology and pediatrics departments with state-of-the-art facilities.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="180">
+          <h5>2020</h5>
+          <p>Partnered with leading insurance providers for cashless healthcare.</p>
+        </div>
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="220">
+          <h5>2023</h5>
+          <p>Launched advanced diagnostics lab and expanded critical care units.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section id="contact" class="bg-light">
+    <div class="container text-center">
+      <h2 data-aos="fade-up">Get in Touch</h2>
+      <p data-aos="fade-up" data-aos-delay="80">Contact us for consultations, queries, or service details.</p>
+      <p data-aos="fade-up" data-aos-delay="120"><strong>📍 Address:</strong> 12 Lakshya Road, Your City</p>
+      <p data-aos="fade-up" data-aos-delay="160"><strong>📞 Phone:</strong> +91 12345 67890</p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a class="btn btn-primary mt-2" href="tel:+911234567890">Call Now</a>
+        <a class="btn btn-outline-success mt-2 ms-2" href="https://wa.me/911234567890" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Lakshya Hospital | Designed with care.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80 });
+
+    // HERO SLIDESHOW
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      if(!slides.length) return;
+      let current = 0;
+      slides[current].classList.add('active');
+      slides.forEach(s => { const img = new Image(); img.src = s.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''); });
+      setInterval(()=>{
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      },6000);
+    })();
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

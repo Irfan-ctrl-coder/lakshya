@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lakshya Hospital | Our Services</title>
+  <meta name="description" content="Lakshya Hospital — comprehensive healthcare services with trusted expertise and cashless insurance partners." />
+  <meta name="author" content="Lakshya Hospital" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* GLOBAL FIXES */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; scroll-behavior: smooth; margin:0; padding:0; }
+
+    :root{
+      --primary:#009688;
+      --dark:#004d40;
+      --muted:#6b6b6b;
+    }
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:#f7fbfb;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    
+/* NAVBAR - teal theme and mobile responsive */
+.navbar {
+  background: rgba(0,150,136,0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 1030;
+}
+
+/* Brand area */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.375rem 0;
+  margin-right: 1rem;
+}
+
+/* Logo size */
+.navbar-logo {
+  height: 72px;
+  max-height: 90%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nav links */
+.nav-link {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #fff !important;
+}
+
+/* Mobile toggler (hamburger icon) */
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+  color: #fff !important;
+  position: relative;
+  z-index: 1100;
+  background: transparent !important; /* remove any black bg */
+  transition: transform 0.3s ease;
+}
+
+/* 🔥 Remove Bootstrap’s default dark SVG icon */
+.navbar-dark .navbar-toggler-icon {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Custom white hamburger lines */
+.navbar-toggler-icon {
+  position: relative;
+  width: 25px;
+  height: 2px;
+  background-color: #fff !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before {
+  top: -7px;
+}
+.navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* ✅ Animate into “X” when menu is open */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: #fff;
+  transform: rotate(0deg);
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background-color: transparent;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* ✅ Navbar collapse background fix */
+.navbar-collapse {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Mobile dropdown background only */
+@media (max-width: 991px) {
+  .navbar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-logo {
+    height: 48px;
+  }
+  .navbar-collapse {
+    position: relative;
+    z-index: 1;
+    /* background: rgba(0,150,136,0.95) !important; */
+    backdrop-filter: blur(4px);
+  }
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+
+    /* HERO */
+    .hero { position:relative; min-height:60vh; display:flex; align-items:flex-end; justify-content:center; padding-bottom:88px; }
+    .hero-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transform:scale(1.02); transition:opacity 1200ms ease-in-out, transform 1200ms ease-in-out; will-change: opacity, transform; }
+    .hero-slide.active { opacity:1; transform:scale(1); }
+    .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.5)); z-index:1; pointer-events:none; }
+    .hero-content { position:relative; z-index:2; max-width:960px; padding:32px; color:#fff; text-align:center; animation: contentIn 700ms ease-out; }
+    .hero h1 { font-family:'Playfair Display',serif; font-weight:700; font-size: clamp(1.75rem, 3.6vw, 3.2rem); line-height:1.03; text-shadow:0 8px 24px rgba(0,0,0,0.45); margin-bottom:8px; }
+    .hero p.lead { font-size:1.05rem; color:rgba(255,255,255,0.92); margin-bottom:18px; text-shadow:0 6px 18px rgba(0,0,0,0.35); }
+
+    /* SERVICE CARDS */
+    .service-card { background:#fff; border-radius:12px; padding:24px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .service-card:hover { transform:translateY(-6px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+    .service-card i { font-size:2.5rem; color:var(--primary); margin-bottom:12px; }
+
+    /* INSURANCE */
+    #insurance { background:#e0f7f5; padding-top:80px; padding-bottom:80px; }
+    #insurance h2 { font-weight:700; color:#00695c; margin-bottom:24px; }
+    #insurance p { color:#444; margin-bottom:16px; line-height:1.6; }
+    #insurance .insurance-box { background:#fff; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+
+    /* CONTACT CTA */
+    #contact { padding:80px 0; }
+    #contact h2 { font-weight:700; margin-bottom:16px; }
+    #contact p { margin-bottom:8px; color:#555; }
+
+    /* footer */
+    .footer{ background:var(--dark); color:#fff; padding:28px 0; text-align:center; }
+
+    @keyframes contentIn{ from{ opacity:0; transform:translateY(28px) } to{ opacity:1; transform:none } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logolakshya-removebg-preview (1).png" alt="Lakshya Hospital Logo" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navmenu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">about</a></li>
+           <li class="nav-item"><a class="nav-link" href="#contact">doctors</a></li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Hero — Services">
+    <div class="hero-slide" style="background-image:url('happy-female-doctor-giving-high-fie-little-boy-who-came-with-father-hospital.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('asian-doctor-visit-examines-senior-man-home-shaking-hands-after-finished-health-check-up-hospital-services-wearing-mask-protect-covid19.jpg');"></div>
+    <div class="container hero-content">
+      <h1 data-aos="fade-up">Comprehensive Healthcare Services</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="80">Explore our medical specialties, diagnostic services, and patient-focused care options.</p>
+    </div>
+  </header>
+
+  <!-- INSURANCE FIRST -->
+  <section id="insurance">
+    <div class="container">
+      <h2 data-aos="fade-up">Insurance & Cashless Health Partners</h2>
+
+      <div class="insurance-box" data-aos="fade-up" data-aos-delay="80">
+        <h5>Why Choose Our Insurance Partners?</h5>
+        <p>We partner with leading insurance providers to ensure that our patients enjoy a hassle-free cashless experience. Our goal is to reduce the stress of hospital visits and make healthcare accessible to everyone.</p>
+        <ul>
+          <li>Cashless claims for most major policies</li>
+          <li>Quick approvals and minimal documentation</li>
+          <li>Wide network coverage across treatments</li>
+        </ul>
+      </div>
+
+      <div class="insurance-box" data-aos="fade-up" data-aos-delay="140">
+        <h5>How It Works</h5>
+        <p>Simply present your insurance ID card at the reception. Our insurance coordinators will assist with verification and approval, ensuring a smooth and transparent process.</p>
+        <ul>
+          <li>Policy verification and eligibility check</li>
+          <li>Authorization for treatments covered</li>
+          <li>Billing directly settled with insurer</li>
+        </ul>
+      </div>
+
+      <div class="insurance-box" data-aos="fade-up" data-aos-delay="200">
+        <h5>Coverage Tips</h5>
+        <p>Not all treatments may be fully covered. We recommend consulting with our insurance team to understand your policy benefits and limitations.</p>
+        <ul>
+          <li>Understand in-patient and out-patient coverage</li>
+          <li>Check limits for specific procedures</li>
+          <li>Clarify co-payment requirements</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES AFTER -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5" data-aos="fade-up">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-heart-pulse-fill"></i>
+            <h5 class="fw-bold mt-3">Cardiology</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Comprehensive heart check-ups and diagnostics</li>
+              <li>Advanced ECG, echo, and stress tests</li>
+              <li>Heart surgeries and intervention procedures</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="140">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-people-fill"></i>
+            <h5 class="fw-bold mt-3">Pediatrics</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Routine child check-ups and immunizations</li>
+              <li>Specialized care for pediatric illnesses</li>
+              <li>Nutrition and growth monitoring</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="180">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-hospital"></i>
+            <h5 class="fw-bold mt-3">Emergency & Critical Care</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>24/7 emergency services</li>
+              <li>ICU and critical care units</li>
+              <li>Rapid response medical team</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="220">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-droplet-half"></i>
+            <h5 class="fw-bold mt-3">Diagnostics & Lab</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Blood tests, imaging, and pathology</li>
+              <li>Timely and accurate reports</li>
+              <li>Advanced lab equipment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="260">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-gender-female"></i>
+            <h5 class="fw-bold mt-3">Gynecology & Obstetrics</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Prenatal and postnatal care</li>
+              <li>Women’s health consultations</li>
+              <li>Reproductive health and family planning</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-briefcase-medical"></i>
+            <h5 class="fw-bold mt-3">General Surgery</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Minimally invasive procedures</li>
+              <li>Postoperative care and rehabilitation</li>
+              <li>Specialized surgical teams</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="340">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-brain"></i>
+            <h5 class="fw-bold mt-3">Neurology</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Diagnosis and treatment of neurological disorders</li>
+              <li>Advanced brain imaging and EEG</li>
+              <li>Rehabilitation programs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="380">
+          <div class="service-card h-100 text-center">
+            <i class="bi bi-lungs-fill"></i>
+            <h5 class="fw-bold mt-3">Pulmonology</h5>
+            <ul class="text-muted text-start mt-2">
+              <li>Respiratory care and treatments</li>
+              <li>Asthma and COPD management</li>
+              <li>Lung function tests and imaging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section id="contact" class="bg-light">
+    <div class="container text-center">
+      <h2 data-aos="fade-up">Book an Appointment</h2>
+      <p data-aos="fade-up" data-aos-delay="80">Contact us for consultations, queries, or service details.</p>
+      <p data-aos="fade-up" data-aos-delay="120"><strong>📍 Address:</strong> 12 Lakshya Road, Your City</p>
+      <p data-aos="fade-up" data-aos-delay="160"><strong>📞 Phone:</strong> +91 12345 67890</p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a class="btn btn-primary mt-2" href="tel:+911234567890">Call Now</a>
+        <a class="btn btn-outline-success mt-2 ms-2" href="https://wa.me/911234567890" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Lakshya Hospital | Designed with care.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80 });
+
+    // HERO SLIDESHOW
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      if(!slides.length) return;
+      let current = 0;
+      slides[current].classList.add('active');
+      slides.forEach(s => { const img = new Image(); img.src = s.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''); });
+      setInterval(()=>{
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      },6000);
+    })();
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
