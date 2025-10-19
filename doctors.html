@@ -42,6 +42,94 @@
     .navbar-brand img { height: 60px; width:auto; }
     .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:500; padding:8px 16px; }
     .nav-link.active { font-weight:700; color:#fff !important; }
+    /* Mobile toggler (hamburger icon) */
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+  color: #fff !important;
+  position: relative;
+  z-index: 1100;
+  background: transparent !important; /* remove any black bg */
+  transition: transform 0.3s ease;
+}
+
+/* 🔥 Remove Bootstrap’s default dark SVG icon */
+.navbar-dark .navbar-toggler-icon {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Custom white hamburger lines */
+.navbar-toggler-icon {
+  position: relative;
+  width: 25px;
+  height: 2px;
+  background-color: #fff !important;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before {
+  top: -7px;
+}
+.navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* ✅ Animate into “X” when menu is open */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: #fff;
+  transform: rotate(0deg);
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background-color: transparent;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* ✅ Navbar collapse background fix */
+.navbar-collapse {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Mobile dropdown background only */
+@media (max-width: 991px) {
+  .navbar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-logo {
+    height: 48px;
+  }
+  .navbar-collapse {
+    position: relative;
+    z-index: 1;
+    /* background: rgba(0,150,136,0.95) !important; */
+    backdrop-filter: blur(4px);
+  }
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+
 
     /* Hero */
     .hero-doctors {
@@ -171,8 +259,8 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About </a></li>
+          <li class="nav-item"><a class="nav-link active" href="doctors.html">Doctors</a></li>
         </ul>
       </div>
     </div>
