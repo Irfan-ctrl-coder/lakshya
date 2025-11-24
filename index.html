@@ -285,7 +285,33 @@
     .info-box:hover, .why-card:hover, .testimonial:hover{ transform:translateY(-6px) }
 
     /* doctors cards */
-    .doctor-card img{ height:250px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px }
+    /* .doctor-card img{ height:250px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px } */
+
+
+
+.doctor-card {
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+}
+
+/* Make image clean and equal sizing */
+.doctor-card img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid #eee;
+}
+
+.card-body {
+  padding: 20px;
+}
+
 
     /* footer */
     .footer{ background:var(--dark); color:#fff; padding:28px 0 }
@@ -387,12 +413,12 @@
 
       <div class="d-flex justify-content-center gap-3 mt-3 hero-buttons" data-aos="fade-up" data-aos-delay="220" role="group" aria-label="Primary actions">
         <!-- WHATSAPP: replace 911234567890 with real number (country code + number, no plus for wa.me URL) -->
-        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/911234567890?text=Hello%20Lakshya%20Hospital!%20I%20would%20like%20to%20book%20an%20appointment." aria-label="Message on WhatsApp">
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/9686635070?text=Hello%20Lakshya%20Hospital!%20I%20would%20like%20to%20book%20an%20appointment." aria-label="Message on WhatsApp">
           <i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp
         </a>
 
         <!-- CALL -->
-        <a class="btn btn-call" href="tel:+911234567890" aria-label="Call Lakshya Hospital">
+        <a class="btn btn-call" href="tel:+919686635070" aria-label="Call Lakshya Hospital">
           <i class="bi bi-telephone" aria-hidden="true"></i> Call Now
         </a>
       </div>
@@ -403,10 +429,10 @@
 
   <!-- floating quick actions (always available) -->
   <div class="floating-actions" aria-hidden="false">
-    <a class="fa-btn fa-whatsapp" href="https://wa.me/911234567890" target="_blank" rel="noopener" title="WhatsApp">
+    <a class="fa-btn fa-whatsapp" href="https://wa.me/9686635070" target="_blank" rel="noopener" title="WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
-    <a class="fa-btn fa-call" href="tel:+911234567890" title="Call">
+    <a class="fa-btn fa-call" href="tel:+919686635070" title="Call">
       <i class="bi bi-telephone"></i>
     </a>
   </div>
@@ -516,36 +542,30 @@
     <div class="container">
       <h2 data-aos="fade-up">Meet Our Specialists</h2>
       <p class="text-muted mb-5" data-aos="fade-up" data-aos-delay="60">Our multi-disciplinary team brings clinical excellence and compassionate care to every patient.</p>
-
-      <!-- Main Surgeon (bigger) -->
+      
       <div class="col-lg-6 mx-auto mb-5" data-aos="zoom-in">
-        <div class="card doctor-card shadow-sm">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1200" class="card-img-top" alt="Surgeon">
-          <div class="card-body">
-            <h4 class="card-title">Dr. Anand Verma</h4>
-            <p class="card-text text-muted">MBBS, MS – Chief Surgeon</p>
-            <p>Lead surgeon specializing in minimally invasive and advanced surgical procedures with 15+ years of experience.</p>
-          </div>
-        </div>
-      </div>
+  <div class="card doctor-card shadow-sm">
+    <img loading="lazy" src="mohandass.jpg" alt="Surgeon">
+    <div class="card-body">
+      <h4 class="card-title">Dr. Mohandass Ulthoor</h4>
+      <p class="card-text text-muted">MBBS, MS – Chief Surgeon</p>
+      <p>
+        Lead surgeon specializing in minimally invasive and advanced surgical
+        procedures with 15+ years of experience.
+      </p>
+    </div>
+  </div>
+</div>
+
 
       <!-- Two supporting doctors -->
       <div class="row justify-content-center g-4">
         <div class="col-md-4" data-aos="fade-right">
           <div class="card doctor-card">
-            <img loading="lazy" src="photo-happy-female-doctor-giving-water-her-patient-nursing-home-assistant-help-those-who-need-it.jpg" class="card-img-top" alt="Doctor 1">
+            <img loading="lazy" src="reshma.jpg" class="card-img-top" alt="Doctor 1">
             <div class="card-body">
-              <h5 class="card-title">Dr. Priya Sharma</h5>
-              <p class="card-text text-muted">MBBS, MD – Internal Medicine</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-left">
-          <div class="card doctor-card">
-            <img loading="lazy" src="beautiful-young-female-doctor-looking-camera-office.jpg" class="card-img-top" alt="Doctor 2">
-            <div class="card-body">
-              <h5 class="card-title">Dr. Sahana Iyer</h5>
-              <p class="card-text text-muted">MBBS, DGO – Gynecology</p>
+              <h5 class="card-title">Dr. Reshma</h5>
+              <p class="card-text text-muted">ACCM, FFAC –duty-Doctor </p>
             </div>
           </div>
         </div>
@@ -682,9 +702,9 @@
     <div class="container" data-aos="fade-up">
       <h2>Book an Appointment</h2>
       <p class="text-muted">We’re here to help. Contact us for appointments or queries.</p>
-      <p><strong>📍 Address:</strong> 12 Lakshya Road, Your City</p>
-      <p><strong>📞 Phone:</strong> +91 12345 67890</p>
-      <a class="btn btn-primary mt-2" href="tel:+911234567890">Call Now</a>
+      <p><strong>📍 Address:</strong> opp to Govt. hospital vijayapura, devenahalli taluk 562135</p>
+      <p><strong>📞 Phone:</strong> +91 9686635070</p>
+      <a class="btn btn-primary mt-2" href="tel:+919686635070">Call Now</a>
       <a class="btn btn-outline-success mt-2 ms-2" href="https://wa.me/911234567890" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </section>
